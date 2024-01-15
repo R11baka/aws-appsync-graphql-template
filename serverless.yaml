@@ -1,0 +1,45 @@
+service: appsync-lambda
+frameworkVersion: "3"
+configValidationMode: "warn"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  architecture: arm64
+  deploymentMethod: direct
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: us-west-1
+
+plugins:
+  - serverless-appsync-plugin
+
+custom:
+  defaultStage: dev
+
+appSync:
+  name: graphql-lambda-${self:provider.stage}
+  schema: "schema.graphql"
+  xrayEnabled: true
+  logging:
+    level: ERROR
+    retentionInDays: 14
+  authentication:
+    type: "API_KEY"
+  apiKeys:
+    - name: apiKey
+      description: dev API key
+      expiresAfter: 3M
+  dataSources:
+    searchPosts:
+      type: AWS_LAMBDA
+      name: graphql-handler
+      config:
+        functionName: graphql-handler
+  resolvers: ${file('.resources/resolvers.yaml')}
+
+functions:
+  graphql-handler:
+    name: graphql-handler-${self:provider.stage}
+    description: Lambda which handles GraphQL requests
+    timeout: 10
+    handler: build/handler.handler

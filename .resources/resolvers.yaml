@@ -1,0 +1,10 @@
+users:
+  type: Query
+  field: users
+  dataSource: graphql-handler
+  kind: UNIT
+adminUsers:
+  type: Query
+  field: adminUsers
+  dataSource: graphql-handler
+  kind: UNIT

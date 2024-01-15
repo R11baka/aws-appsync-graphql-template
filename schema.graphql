@@ -1,0 +1,12 @@
+type Query {
+  users: UsersResponse!
+  adminUsers: AdminUsersResponse!
+}
+
+type UsersResponse {
+  userName: String!
+}
+
+type AdminUsersResponse @aws_api_key {
+  userName: String!
+}

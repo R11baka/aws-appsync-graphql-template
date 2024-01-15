@@ -1,0 +1,7 @@
+.serverless
+.idea
+node_modules
+coverage
+.eslintcache
+.env
+build
