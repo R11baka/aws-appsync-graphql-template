@@ -6,6 +6,8 @@ Integrate AWS Appsync easily with Lambda using this template.
 - [Quick Start](#quick-start)
 
 # <a name="quick-start"></a>Quick Start
+Detailed explanation you can read at https://r11baka.hashnode.dev/how-to-connect-appsync-and-lambda
+
 
 ## Installation
 
