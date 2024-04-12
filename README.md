@@ -15,4 +15,6 @@ Clone the repository
 
 ```bash
 git clone https://github.com/R11baka/aws-appsync-graphql-template.git
+cd aws-appsync-graphql-template
+npm i
 ```
