@@ -18,3 +18,6 @@ git clone https://github.com/R11baka/aws-appsync-graphql-template.git
 cd aws-appsync-graphql-template
 npm i
 ```
+
+## What included 
+husky with pre push and precommit hooks. You can't push incorrect schema for appsync.
